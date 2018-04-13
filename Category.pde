@@ -17,6 +17,8 @@ class Category
   
   void display(int column, int totalColumns)
   {
+    noStroke();
+    
     float pxPerRow = height / (float)(questions.length + 1);
     float pxPerCol = width / (float)totalColumns;
     

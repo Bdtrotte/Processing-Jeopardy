@@ -14,3 +14,7 @@ To run a game:
     Press '0' to return to questions without awarding points.
 4) To undo the awarding of points, press 'r'
 5) To show the score press and hold 's'
+
+Extras:
+Press 'c' for 10x fun
+Press 'p' to print the current scores to console

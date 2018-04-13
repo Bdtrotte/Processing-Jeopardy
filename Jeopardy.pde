@@ -56,6 +56,8 @@ Category[] cats = {
   new Category("Cat E", questionSet5)
 };
 
+Confetti[] confettiCanons;
+
 Question currentQuestion = null;
 int curRow;
 int curCol;
@@ -64,7 +66,20 @@ Stack<Question> pastQuestions = new Stack<Question>();
 
 void setup()
 {
-  fullScreen();
+  size(1200,800);
+  //fullScreen();
+  
+  smooth();
+  
+  Confetti[] cc = {
+    new Confetti(width     / 10, 0*height / 10, PI/2, PI/2, 5, 2),
+    new Confetti(width * 3 / 10, 0*height / 10, PI/2, PI/2, 5, 2),
+    new Confetti(width     /  2, 0*height / 10, PI/2, PI/2, 5, 2),
+    new Confetti(width * 7 / 10, 0*height / 10, PI/2, PI/2, 5, 2),
+    new Confetti(width * 9 / 10, 0*height / 10, PI/2, PI/2, 5, 2)
+  };
+  
+  confettiCanons = cc;
 }
 
 void draw()
@@ -75,9 +90,17 @@ void draw()
     cats[i].display(i, cats.length);
   }
   
-  if (keyPressed && key == 's') {
-    displayTeams();    
-    return;
+  if (keyPressed) {
+    switch(key) {
+      case 's':
+        displayTeams();
+        return;
+      case 'c':
+        for (Confetti c : confettiCanons) {
+          c.emit((int)random(3, 13));
+        }
+        break;
+    }
   }
   
   if (displayingQuestions) {
@@ -86,6 +109,10 @@ void draw()
     }
   } else {
     currentQuestion.displayLarge(curCol, curRow, cats[curCol].questions.length, cats.length);
+  }
+  
+  for (Confetti c : confettiCanons) {
+    c.updateAndDisplay();
   }
 }
 
