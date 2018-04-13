@@ -107,7 +107,7 @@ class Question
       fill(backgroundColor);
       rect(0, 0, width, height);
       
-      textSize(150);
+      textSize(50);
       textAlign(CENTER, CENTER);
       fill(0);
       text(question, 4, 4, width, height);
