@@ -55,18 +55,67 @@ class Question
     }
   }
   
-  void displayLarge()
+  float bigProg = 0;
+  
+  void displayLarge(int column, int row, int totalRows, int totalColumns)
   {
-    noStroke();
-    fill(backgroundColor);
-    rect(0, 0, width, height);
+    bigProg += 0.05;
     
-    textSize(150);
-    textAlign(CENTER, CENTER);
-    fill(0);
-    text(question, 4, 4, width, height);
-    fill(255);
-    text(question, 0, 0, width, height);
+    if (bigProg < 1.5) {
+      float pxPerRow = height / (float)(totalRows + 1);
+      float pxPerCol = width / (float)totalColumns;
+      
+      float x = column * pxPerCol;
+      float y = pxPerRow + row * pxPerRow;
+      
+      pushMatrix();
+      
+      float f = min(bigProg, 1);
+      
+      float xS = width / pxPerCol;
+      float yS = height / pxPerRow;
+      
+      xS = (xS - 1) * f + 1;
+      yS = (yS - 1) * f + 1;
+      
+      if (bigProg > 1) {
+        background(backgroundColor);
+        float _f = (bigProg - 1) * 2;
+        xS *= (1 - _f);
+      }
+      
+      translate((width / 2 - x - pxPerCol / 2) * f + x + pxPerCol / 2, 
+                (height / 2 - y - pxPerRow / 2) * f + y + pxPerRow / 2);
+      scale(xS, yS);
+      translate(-x - pxPerCol / 2, -y - pxPerRow / 2);
+      
+      displaySmall(column, row, totalRows, totalColumns);
+      
+      popMatrix();
+    } else {
+      background(backgroundColor);
+      
+      float f = min(1, (bigProg - 1.5) * 2);
+      
+      pushMatrix();
+      
+      translate(width/2, height/2);
+      scale(f, 1);
+      translate(-width/2, -height/2);
+      
+      noStroke();
+      fill(backgroundColor);
+      rect(0, 0, width, height);
+      
+      textSize(150);
+      textAlign(CENTER, CENTER);
+      fill(0);
+      text(question, 4, 4, width, height);
+      fill(255);
+      text(question, 0, 0, width, height);
+      
+      popMatrix();
+    }
   }
   
   void mousePing(int column, int row, int totalRows, int totalColumns)
@@ -90,6 +139,7 @@ class Question
   
   void awardPoints(Team t)
   {
+    bigProg = 0;
     wasPicked = true;
     winner = t;
     t.points += pointValue;

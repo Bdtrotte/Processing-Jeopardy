@@ -57,17 +57,23 @@ Category[] cats = {
 };
 
 Question currentQuestion = null;
+int curRow;
+int curCol;
 boolean displayingQuestions = true;
 Stack<Question> pastQuestions = new Stack<Question>();
 
 void setup()
 {
-  fullScreen();
+  size(1200,800);
 }
 
 void draw()
 {
   background(0);
+  
+  for (int i = 0; i < cats.length; ++i) {
+    cats[i].display(i, cats.length);
+  }
   
   if (keyPressed && key == 's') {
     displayTeams();    
@@ -77,10 +83,9 @@ void draw()
   if (displayingQuestions) {
     for (int i = 0; i < cats.length; ++i) {
       cats[i].mousePing(i, cats.length);
-      cats[i].display(i, cats.length);
     }
   } else {
-    currentQuestion.displayLarge();
+    currentQuestion.displayLarge(curCol, curRow, cats[curCol].questions.length, cats.length);
   }
 }
 
@@ -105,12 +110,9 @@ void keyPressed()
         currentQuestion = null;
         displayingQuestions = true;
         
-        for (int i = 0; i < teams.length; ++i) {
-          println("Team " + teams[i].name + " score: " + teams[i].points);
-        }
-        
         return;
       } else if (k == 0) {
+        currentQuestion.bigProg = 0;
         currentQuestion = null;
         displayingQuestions = true;
       }
@@ -122,13 +124,21 @@ void mousePressed()
 {
   if (displayingQuestions) {
     Question q = null;
+    int qr = -1;
+    int qc = -1;
     for (int i = 0; i < cats.length; ++i) {
-      q = cats[i].mousedOver();
-      
-      if (q != null) break;
+      for (int j = 0; j < cats[i].questions.length; ++j) {
+        if (cats[i].questions[j].mousedOver()) {
+          q = cats[i].questions[j];
+          qr = j;
+          qc = i;
+        }
+      }
     }
     
     currentQuestion = q;
+    curRow = qr;
+    curCol = qc;
     
     if (currentQuestion != null) {
       if (currentQuestion.wasPicked) return;

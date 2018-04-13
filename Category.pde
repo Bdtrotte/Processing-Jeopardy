@@ -15,14 +15,6 @@ class Category
       questions[i].mousePing(column, i, questions.length, totalColumns);
   }
   
-  Question mousedOver()
-  {
-    for (int i = 0; i < questions.length; ++i)
-      if (questions[i].mousedOver())
-        return questions[i];
-    return null;
-  }
-  
   void display(int column, int totalColumns)
   {
     float pxPerRow = height / (float)(questions.length + 1);
