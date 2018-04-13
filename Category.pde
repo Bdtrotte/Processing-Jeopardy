@@ -25,7 +25,7 @@ class Category
     
     fill(0);
     rect(x, y, pxPerCol, pxPerRow);
-    fill(backgroundColor);
+    fill(80, 80, 255);
     rect(x + borderWidth * 2, y + borderWidth * 2, pxPerCol - borderWidth * 4, pxPerRow - borderWidth * 4);
     
     textSize(30);

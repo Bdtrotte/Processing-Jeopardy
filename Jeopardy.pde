@@ -64,7 +64,7 @@ Stack<Question> pastQuestions = new Stack<Question>();
 
 void setup()
 {
-  size(1200,800);
+  fullScreen();
 }
 
 void draw()
@@ -96,6 +96,9 @@ void keyPressed()
     case 'r':
       if (!pastQuestions.empty())
         pastQuestions.pop().reset();
+      break;
+    case 'p':
+      printScores();
       break;
     }
   } else if (currentQuestion != null) {
@@ -172,4 +175,12 @@ void displayTeams()
     fill(255, 255, 0);
     text("$" + teams[i].points, width - 10, y);
   }
+}
+
+void printScores()
+{
+  for (int i = 0; i < teams.length; ++i) {
+    println("Team \"" + teams[i].name + "\" has " + teams[i].points +" points");
+  }
+  println();
 }
