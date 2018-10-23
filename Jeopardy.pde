@@ -74,6 +74,9 @@ int curCol;
 boolean displayingQuestions = true;
 Stack<Question> pastQuestions = new Stack<Question>();
 
+GifBase gb;
+SpookImage si;
+
 void setup()
 {
   size(1200,800);
@@ -90,6 +93,9 @@ void setup()
   };
   
   confettiCanons = cc;
+  
+  gb = new GifBase(this);
+  si = new SpookImage(gb);
 }
 
 void draw()
@@ -100,6 +106,14 @@ void draw()
     cats[i].display(i, cats.length);
   }
   
+  if (displayingQuestions) {
+    for (int i = 0; i < cats.length; ++i) {
+      cats[i].mousePing(i, cats.length);
+    }
+  } else {
+    currentQuestion.displayLarge(curCol, curRow, cats[curCol].questions.length, cats.length);
+  }
+  
   if (keyPressed) {
     switch(key) {
       case 's':
@@ -107,18 +121,13 @@ void draw()
         return;
       case 'c':
         for (Confetti c : confettiCanons) {
-          c.emit((int)random(3, 13));
+          c.emit((int)random(3, 4));
         }
         break;
+      case 'x':
+        si.render();
+        break;
     }
-  }
-  
-  if (displayingQuestions) {
-    for (int i = 0; i < cats.length; ++i) {
-      cats[i].mousePing(i, cats.length);
-    }
-  } else {
-    currentQuestion.displayLarge(curCol, curRow, cats[curCol].questions.length, cats.length);
   }
   
   for (Confetti c : confettiCanons) {
