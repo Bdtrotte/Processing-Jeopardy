@@ -25,14 +25,16 @@ class GifBase
   }
 }
 
-void centerDrawImage(PImage img, float scale, boolean flip, float x, float y)
+void centerDrawImage(PImage img, float scale, boolean flip, float x, float y, float rot)
 {
   pushMatrix();
+  
   float xS = 1;
   if (flip)xS = -1;
+  translate(x, y);
+  rotate(rot);
   scale(xS * scale, scale);
-  translate(xS * x / scale - img.width/2, y / scale - img.height/2);
-  
+  translate(-img.width/2, -img.height/2);
   image(img, 0, 0);
   
   popMatrix();
@@ -49,11 +51,11 @@ class SpookImage
   
   void render()
   {
-    centerDrawImage(gb.gifs[4], 1.5, false, width/2, height/4);
-    centerDrawImage(gb.gifs[3], 1, false, width/20, height/4);
-    centerDrawImage(gb.gifs[3], 1, true, width*19/20, height/4);
-    centerDrawImage(gb.gifs[2], 1, false, width/20, height*5/6);
-    centerDrawImage(gb.gifs[2], 1, true, width*19/20, height*5/6);
-    centerDrawImage(gb.gifs[0], 2, false, width/2, height*2/3);
+    centerDrawImage(gb.gifs[4], 1.5, false, width/2, height/4, 0);
+    centerDrawImage(gb.gifs[3], 1, false, width/20, height/4, 0);
+    centerDrawImage(gb.gifs[3], 1, true, width*19/20, height/4, 0);
+    centerDrawImage(gb.gifs[2], 1, false, width/20, height*5/6, 0);
+    centerDrawImage(gb.gifs[2], 1, true, width*19/20, height*5/6, 0);
+    centerDrawImage(gb.gifs[0], 2, false, width/2, height*2/3, 0);
   }
 }

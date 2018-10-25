@@ -76,6 +76,7 @@ Stack<Question> pastQuestions = new Stack<Question>();
 
 GifBase gb;
 SpookImage si;
+GhostHive gh;
 
 void setup()
 {
@@ -83,6 +84,7 @@ void setup()
   //fullScreen();
   
   smooth();
+  frameRate(24);
   
   Confetti[] cc = {
     new Confetti(width     / 10, 0*height / 10, PI/2, PI/2, 5, 2),
@@ -96,6 +98,7 @@ void setup()
   
   gb = new GifBase(this);
   si = new SpookImage(gb);
+  gh = new GhostHive(gb.gifs[5]);
 }
 
 void draw()
@@ -133,10 +136,14 @@ void draw()
   for (Confetti c : confettiCanons) {
     c.updateAndDisplay();
   }
+  gh.updateAndDisplay();
 }
 
 void keyPressed()
 {
+  if (key == 'g')
+    gh.emit(mouseX, mouseY, 1);
+  
   if (displayingQuestions) {
     switch(key) {
     case 'r':
