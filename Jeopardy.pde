@@ -8,62 +8,54 @@ Team[] teams = {
   new Team("Team 5")
 };
 
-//Calculus
+//Algebra
 Question[] questionSet1 = {
-  new Question("Find dy/dx for x^3y^2z+3xyw+w^3+z^2+3y+6x = 9", 200),
-  new Question("Find f'(x) for f(x) = sqrt(1-sqrt(2-sqrt(3-x)))", 400),
-  new Question("A mathematician builds a washing machine which, for whatever reason, is 10 feet tall. Because he is a mathematician, he tells you the area, in square feet, of the horizontal cross section at height h is given by A(h) = 50h. Water begins to fill this monstrosity. When the height of the water is 5 feet, the height increases at a rate of 1 foot/min. Find the rate at which volume changes with respect to time at this point", 600),
-  new Question("Demonstrate that for n = 1, 2 , 3, ...\nsin(a) = 2^nsin(a/2^n)cos(a/2)cos(a/4)...cos(a/2n)", 800),
-  new Question("For what values (a,b) of positive real numbers does the improper integral:the integral from b to infinity of sqrt(sqrt(x+a)-sqrt(x)) - sqrt(sqrt(x)-sqrt(x-b)converge?", 1000)
+  new Question("X + 9 = 26\nWhat is X?", 200),
+  new Question("Y = 4X + 1\nY + 5 = -12 + Z\nZ - 14 = 8\nWhat is X?", 400),
+  new Question("Let f = (3156)(24)(987) be a permutation. What is the smallest e such that f^e = Id?", 600),
+  new Question("What is the automorphism group of the following graph: (a square, but with a fifth vertex in the middle connected to all 4 other vertices)", 800),
+  new Question("Give a group homomorphism from ZxZ to R.", 1000)
 };
 
-//Algerbra
+//Number Theory
 Question[] questionSet2 = {
-  new Question("Determine if the following vectors span R^4: (1,2,0,-2) (2,4,0,-3) (3,6,1,-4) (4,8,2,-5) (1,1,1,0)", 200),
-  new Question("Let sigma = ( 1 2 ) ( 1 4 3 2 ) ( 5 7 6 8 ) ( 3 1 2 ) in Sym(8) be a permutation. Determine order(sigma)sign(sigma).", 400),
-  new Question("Let H,K <= G be subgroups of a finite group G. Prove that |HK| = |H||K|/|H intersect K|.", 600),
-  new Question("Determine [Q(sqrt(2),cuberoot(2)) : Q] x |Sym(5)| mod 7", 800),
-  new Question("Prove that the polynomial x^4 - 10x^2 - 99 is irreducible over Q.", 1000)
-};
-
-//Complex
-Question[] questionSet3 = {
-  new Question("What is arg(4/(sqrt(2)-isqrt(2))?", 200),
-  new Question("Give a value of (-8i)^(1/3) not on the imaginary line.", 400)
-};
-
-//Discrete
-Question[] questionSet4 = {
-  new Question("How many ways can you arrange 30 people on a ferris wheel with 30 seats?", 200),
-  new Question("How many unique arrangements of the letters in \"Math is hella lit\" are there?", 400),
-  new Question("Suppose you have a set A with |A|=n, and a set B with |B|=m. How many distinct functions are there from A to B?", 600),
-  new Question("Prove pascal's identity (n+1 choose k) = (n choose k) + (n choose k-1)", 800),
-  new Question("Prove the binomial theorem: (a+b)^n = sum(i=0, n)( (n choose i)(a^n-i)(b^i) )", 1000)
+  new Question("What is the 4th term in the 5th row of pascal’s triangle?", 200),
+  new Question("Find an integer between 0 and 40 such that x ≡ 4 mod 5 and x ≡ 3 mod 7", 400),
+  new Question("phi(n) is a function defined as the number of integers m less than n such that gcd(m,n) = 1. What is the highest value of phi for 0 < n < 100?", 600),
+  new Question("What is the largest number you can write with the digits 1-9 without repeating digits, such that the number is divisible by 6?", 800)
 };
 
 //Geometry
-Question[] questionSet5 = {
-  new Question("Which 3D solid has the highest volume to surface area ratio?", 200),
-  new Question("What is the interior angle (degrees) of one of the corners of a regular 24-gon?", 400),
-  new Question("A Reuleaux triangle is a shape formed from the intersection of three circular disks, each having its center on the boundary of the other two. What is the area of a Reuleaux Triangle given the radius of the circles as R.", 600),
-  new Question("Consider n-dimensional Euclidean space (R^n) with the standard coordinate axes, and center 2^n unit hyperspheres at each of the coordinates (+-1,...,+-1). What is the radius of a hypersphere centered at (0,...,0) tangent to all these other spheres?", 800),
-  new Question("Consider a circle of radius r and a chord (above the center) of length c. Derive a formula for the smaller area cut off by the chord in terms of r and c.", 1000)
+Question[] questionSet3 = {
+  new Question("Consider a rectangle with sides lengths 1 and x. What should x be so that the ratio between perimeter and area is 7?", 200),
+  new Question("Consider a cube centered at the origin in R^3 of side length 2, and place a sphere of radius 1 at each corner of the cube (so they’re each tangent to the 3 adjacent ones). What is the radius of a 9th sphere centered at the origin tangent to each of these 8 spheres?", 600),
+  new Question("Consider an icosahedron (12 verts, 20 triangular faces). We “cut off” each of the 12 vertices, leaving a regular pentagon in its place surrounded by regular hexagons. How many edges does this new solid have?", 800),
+  new Question("Divide a circle into congruent divisions such that at least one of them does not touch the center.", 1000)
+};
+
+//Meta Math
+Question[] questionSet4 = {
+  new Question("This proposition from Euclid’s elements is often called “Pons Asinorum.”", 200),
+  new Question("While both Leibnitz and Newton are credited with discovering The Calculus, this defamed one definitively published first.", 400),
+  new Question("L'Hôpital’s rule was not discovered by L'Hôpital. This mathematician did.", 600),
+  new Question("This mathematician was the first woman awarded the Fields Medal", 800),
+  new Question("List these mathematicians by the age at which they died, low to high: Gauss, Ramanujan, Galois, Abel, Euler, and Riemann.", 1000)
 };
 
 //Misc
-Question[] questionSet6 = {
-  new Question("How many primes less than 50 can be written as the sum of two square integers?", 600),
-  new Question("A natural number n is called (m,k)-perfect if it satisfies the equation sigma^m(n) = kn,where sigma(n) = the sum of all the divisors of n. What is the smallest (2,3)-perfect number?", 800),
-  new Question("Prove that the cardinality of the set of transcendental (i.e. is not a root of any polynomial with rational coefficients) elements of C is equal to that of R.", 1000)
+Question[] questionSet5 = {
+  new Question("What is seven times five minus nine times four, all squared, minus 13?", 200),
+  new Question("How many squares are there between 0 and 200?", 400),
+  new Question("How many real roots does x^6 - 1 have", 600),
+  new Question("Give an example of a function from R to R that is discontinuous at uncountable many points and continuous at uncountably many points.", 800)
 };
 
 Category[] cats = {
-  new Category("Calculus", questionSet1),
-  new Category("Algebra", questionSet2),
-  new Category("Complex", questionSet3),
-  new Category("Discrete", questionSet4),
-  new Category("Geometry", questionSet5),
-  new Category("Misc!", questionSet6)
+  new Category("Algebra", questionSet1),
+  new Category("Number Theory", questionSet2),
+  new Category("Geometry", questionSet3),
+  new Category("Math History", questionSet4),
+  new Category("Misc", questionSet5)
 };
 
 Confetti[] confettiCanons;
